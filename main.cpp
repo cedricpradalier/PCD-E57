@@ -60,13 +60,15 @@ int main (int argc, char** argv){
 			cout << ss.str() << endl;
 			int n = 0;
 			
-			pcl::io::savePCDFileASCII (ss.str(), *cloud_transformed);
+			pcl::io::savePCDFileBinary (ss.str(), *cloud_transformed);
 
+#if 0
 			//demonstration of writing down from PCD to E57
 			if(e57.saveE57File("test.e57", cloud, scale_factor) == -1){
 				cout << "Error saving in e57"<<endl;
 				return -1;
 			}
+#endif
 
 			cout << "********************* CONVERSION COMPLETED *********************"<<endl;
 			cout << "File: \t" << filenames.at(i) << endl;
